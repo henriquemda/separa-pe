@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { LiveTicker } from "@/components/LiveTicker";
 import { Hero } from "@/components/Hero";
 import { InteractiveBookingDemo } from "@/components/InteractiveBookingDemo";
+import { MatchmakingShowcase } from "@/components/MatchmakingShowcase";
 import { RoiCalculator } from "@/components/RoiCalculator";
 import { FeaturesShowcase } from "@/components/FeaturesShowcase";
 import { RegionalCoverage } from "@/components/RegionalCoverage";
@@ -18,6 +19,7 @@ import { StickyMobileBar } from "@/components/StickyMobileBar";
 
 export default function Home() {
   const [audienceMode, setAudienceMode] = useState<"pelotero" | "complejo">("pelotero");
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [modalPrefillData, setModalPrefillData] = useState<any>(null);
 
@@ -27,7 +29,9 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#040806] text-gray-100 flex flex-col font-sans selection:bg-emerald-400 selection:text-black">
+    <div className={`min-h-screen transition-colors duration-300 ${
+      theme === "light" ? "light-theme bg-[#f2fbf5] text-slate-900" : "bg-[#040806] text-gray-100"
+    } flex flex-col font-sans selection:bg-emerald-400 selection:text-black`}>
       {/* Top Real-time Pichangas Live Ticker */}
       <LiveTicker />
 
@@ -36,6 +40,8 @@ export default function Home() {
         onOpenBooking={() => handleOpenBooking()}
         audienceMode={audienceMode}
         setAudienceMode={setAudienceMode}
+        theme={theme}
+        setTheme={setTheme}
       />
 
       {/* Hero Section */}
@@ -52,6 +58,9 @@ export default function Home() {
           audienceMode={audienceMode}
           setAudienceMode={setAudienceMode}
         />
+
+        {/* Real-time Matchmaking / Modo Falta Uno */}
+        <MatchmakingShowcase onOpenBooking={handleOpenBooking} />
 
         {/* Loss Aversion ROI Calculator for Complex Owners */}
         <RoiCalculator onOpenBooking={() => handleOpenBooking()} />

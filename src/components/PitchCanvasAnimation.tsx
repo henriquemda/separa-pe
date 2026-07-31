@@ -54,8 +54,12 @@ export function PitchCanvasAnimation() {
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
 
+      const isLight = document.documentElement.classList.contains("light-theme") || document.body.classList.contains("light-theme") || canvas.parentElement?.closest(".light-theme");
+      const accentColor = isLight ? "#059669" : "#00ff87";
+      const strokeColor = isLight ? "rgba(16, 185, 129, 0.15)" : "rgba(0, 255, 135, 0.06)";
+
       // Pitch Center Circle & Lines
-      ctx.strokeStyle = "rgba(0, 255, 135, 0.06)";
+      ctx.strokeStyle = strokeColor;
       ctx.lineWidth = 1;
 
       // Draw Center Circle
@@ -83,7 +87,9 @@ export function PitchCanvasAnimation() {
           const other = nodes[j];
           const dist = Math.hypot(node.x - other.x, node.y - other.y);
           if (dist < 140) {
-            ctx.strokeStyle = `rgba(0, 255, 135, ${0.12 * (1 - dist / 140)})`;
+            ctx.strokeStyle = isLight 
+              ? `rgba(16, 185, 129, ${0.25 * (1 - dist / 140)})`
+              : `rgba(0, 255, 135, ${0.12 * (1 - dist / 140)})`;
             ctx.beginPath();
             ctx.moveTo(node.x, node.y);
             ctx.lineTo(other.x, other.y);
@@ -93,9 +99,9 @@ export function PitchCanvasAnimation() {
 
         // Draw Player Node
         const glowRadius = node.radius + Math.sin(node.pulse) * 1.5;
-        ctx.fillStyle = "#00ff87";
-        ctx.shadowColor = "#00ff87";
-        ctx.shadowBlur = 10;
+        ctx.fillStyle = accentColor;
+        ctx.shadowColor = accentColor;
+        ctx.shadowBlur = isLight ? 4 : 10;
         ctx.beginPath();
         ctx.arc(node.x, node.y, Math.max(1, glowRadius), 0, Math.PI * 2);
         ctx.fill();
@@ -107,7 +113,7 @@ export function PitchCanvasAnimation() {
       ball.y += (ball.targetY - ball.y) * ball.speed;
 
       // Draw Glowing Ball Pass Trail
-      ctx.strokeStyle = "rgba(0, 255, 135, 0.4)";
+      ctx.strokeStyle = isLight ? "rgba(16, 185, 129, 0.5)" : "rgba(0, 255, 135, 0.4)";
       ctx.setLineDash([4, 4]);
       ctx.beginPath();
       ctx.moveTo(ball.x, ball.y);
@@ -116,9 +122,9 @@ export function PitchCanvasAnimation() {
       ctx.setLineDash([]);
 
       // Draw Glowing Ball
-      ctx.fillStyle = "#ffffff";
-      ctx.shadowColor = "#00ff87";
-      ctx.shadowBlur = 15;
+      ctx.fillStyle = isLight ? "#0f172a" : "#ffffff";
+      ctx.shadowColor = accentColor;
+      ctx.shadowBlur = isLight ? 6 : 15;
       ctx.beginPath();
       ctx.arc(ball.x, ball.y, 4, 0, Math.PI * 2);
       ctx.fill();

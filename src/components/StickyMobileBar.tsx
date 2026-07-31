@@ -9,7 +9,7 @@ interface StickyMobileBarProps {
 
 export function StickyMobileBar({ onOpenBooking }: StickyMobileBarProps) {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 p-3 bg-[#040806]/95 border-t border-emerald-500/30 backdrop-blur-lg lg:hidden shadow-2xl">
+    <div className="fixed bottom-0 left-0 right-0 z-40 p-3 bg-stadium border-t border-emerald-500/30 backdrop-blur-lg lg:hidden shadow-2xl">
       <div className="flex items-center justify-between gap-3 max-w-md mx-auto">
         <div className="flex flex-col">
           <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1">

@@ -63,7 +63,7 @@ export function FeaturesShowcase() {
   ];
 
   return (
-    <section id="beneficios" className="py-20 bg-[#040806] relative">
+    <section id="beneficios" className="py-20 bg-stadium relative">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">

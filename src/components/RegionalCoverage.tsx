@@ -68,7 +68,7 @@ export function RegionalCoverage({ onOpenBooking }: RegionalCoverageProps) {
   const [selectedRegion, setSelectedRegion] = useState(REGIONS[0]);
 
   return (
-    <section id="cobertura" className="py-20 bg-[#040806] relative border-t border-emerald-900/30">
+    <section id="cobertura" className="py-20 bg-stadium relative border-t border-emerald-900/30">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-12">

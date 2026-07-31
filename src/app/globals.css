@@ -122,3 +122,125 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #00ff87;
 }
+
+/* Comprehensive Light Theme Overrides & Contrast Matrix */
+.light-theme {
+  --bg-main: #f0faf4;
+  background-color: #f0faf4 !important;
+  color: #0f172a !important;
+}
+
+.light-theme .bg-mesh-pitch {
+  background-color: #f0faf4 !important;
+  background-image: 
+    radial-gradient(at 20% 20%, rgba(16, 185, 129, 0.18) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(6, 182, 212, 0.12) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(52, 211, 153, 0.15) 0px, transparent 50%);
+}
+
+.light-theme .pitch-lines {
+  background-image: linear-gradient(to right, rgba(16, 185, 129, 0.1) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(16, 185, 129, 0.1) 1px, transparent 1px);
+}
+
+.light-theme header {
+  background-color: rgba(240, 250, 244, 0.92) !important;
+  border-bottom-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+.light-theme .glass-card {
+  background: rgba(255, 255, 255, 0.92) !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  box-shadow: 0 10px 30px -10px rgba(16, 185, 129, 0.15) !important;
+}
+
+.light-theme .text-white {
+  color: #0f172a !important;
+}
+
+.light-theme .text-gray-300,
+.light-theme .text-gray-200 {
+  color: #334155 !important;
+}
+
+.light-theme .text-gray-400 {
+  color: #64748b !important;
+}
+
+.light-theme .text-gradient-turf {
+  background: linear-gradient(135deg, #047857 0%, #059669 50%, #10b981 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.light-theme .text-gradient-gold {
+  background: linear-gradient(135deg, #b45309 0%, #d97706 50%, #f59e0b 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+/* Light Mode Input & Container Enhancements */
+.light-theme select option {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+}
+
+.light-theme .bg-emerald-950\/40,
+.light-theme .bg-emerald-950\/30,
+.light-theme .bg-emerald-950\/50,
+.light-theme .bg-emerald-950\/60,
+.light-theme .bg-emerald-950\/80,
+.light-theme .bg-emerald-900\/30,
+.light-theme .bg-emerald-900\/40 {
+  background-color: rgba(220, 252, 231, 0.75) !important;
+  border-color: rgba(16, 185, 129, 0.35) !important;
+  color: #0f172a !important;
+}
+
+.light-theme .bg-emerald-950 {
+  background-color: #d1fae5 !important;
+  color: #065f46 !important;
+}
+
+.light-theme .bg-cyan-950 {
+  background-color: #cffaff !important;
+  color: #0e7490 !important;
+}
+
+.light-theme .bg-purple-950\/40,
+.light-theme .bg-purple-950\/20 {
+  background-color: #f3e8ff !important;
+  border-color: #c084fc !important;
+  color: #581c87 !important;
+}
+
+.light-theme .bg-amber-950\/60,
+.light-theme .bg-amber-950\/30 {
+  background-color: #fef3c7 !important;
+  border-color: #f59e0b !important;
+  color: #92400e !important;
+}
+
+/* ROI Loss Alert Box in Light Mode */
+.light-theme .bg-red-950\/40 {
+  background-color: #fef2f2 !important;
+  border-color: #f87171 !important;
+}
+
+.light-theme .text-red-400 {
+  color: #dc2626 !important;
+}
+
+/* Footer in Light Mode */
+.light-theme footer {
+  background-color: #e6f4eb !important;
+  border-top-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+/* Live Ticker in Light Mode */
+.light-theme .animate-marquee > div {
+  background-color: #ffffff !important;
+  border-color: rgba(16, 185, 129, 0.3) !important;
+  color: #1e293b !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05) !important;
+}

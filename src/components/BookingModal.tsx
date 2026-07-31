@@ -77,7 +77,7 @@ export function BookingModal({ isOpen, onClose, prefillData }: BookingModalProps
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-lg overflow-hidden glass-card rounded-3xl border border-emerald-400/40 p-6 sm:p-8 shadow-2xl bg-[#040806]"
+          className="relative w-full max-w-lg overflow-hidden glass-card rounded-3xl border border-emerald-400/40 p-6 sm:p-8 shadow-2xl bg-stadium"
         >
           {/* Close button */}
           <button

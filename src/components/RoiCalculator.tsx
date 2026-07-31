@@ -36,7 +36,7 @@ export function RoiCalculator({ onOpenBooking }: RoiCalculatorProps) {
   const recoveredYearly = recoveredMonthly * 12;
 
   return (
-    <section id="roi" className="py-20 bg-[#040806] relative overflow-hidden border-t border-emerald-900/30">
+    <section id="roi" className="py-20 bg-stadium relative overflow-hidden border-t border-emerald-900/30">
       {/* Glow Orbs */}
       <div className="absolute top-1/2 left-0 h-96 w-96 bg-amber-500/10 blur-[130px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 right-0 h-96 w-96 bg-emerald-500/10 blur-[130px] rounded-full pointer-events-none" />

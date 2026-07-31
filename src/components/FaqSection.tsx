@@ -32,7 +32,7 @@ export function FaqSection() {
   const [openIdx, setOpenIdx] = useState<number | null>(0);
 
   return (
-    <section className="py-20 bg-[#040806] relative border-t border-emerald-900/30">
+    <section className="py-20 bg-stadium relative border-t border-emerald-900/30">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
         
         <div className="text-center mb-12">

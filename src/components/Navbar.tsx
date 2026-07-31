@@ -14,17 +14,27 @@ import {
   Building2,
   Users,
   ChevronRight,
-  Zap
+  Zap,
+  Sun,
+  Moon
 } from "lucide-react";
 
 interface NavbarProps {
   onOpenBooking: () => void;
   audienceMode: "pelotero" | "complejo";
   setAudienceMode: (mode: "pelotero" | "complejo") => void;
+  theme?: "dark" | "light";
+  setTheme?: (theme: "dark" | "light") => void;
 }
 
-export function Navbar({ onOpenBooking, audienceMode, setAudienceMode }: NavbarProps) {
+export function Navbar({ onOpenBooking, audienceMode, setAudienceMode, theme = "dark", setTheme }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleTheme = () => {
+    if (setTheme) {
+      setTheme(theme === "dark" ? "light" : "dark");
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-emerald-900/30 bg-[#040806]/85 backdrop-blur-md transition-all">
@@ -104,8 +114,22 @@ export function Navbar({ onOpenBooking, audienceMode, setAudienceMode }: NavbarP
           </a>
         </nav>
 
-        {/* Action Buttons */}
+        {/* Action Buttons & Light/Dark Theme Switcher */}
         <div className="hidden sm:flex items-center gap-3">
+          {/* Light / Dark Theme Button */}
+          <button
+            onClick={toggleTheme}
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-emerald-500/30 bg-emerald-950/40 text-emerald-300 hover:border-emerald-400 hover:bg-emerald-900/50 transition-all shadow-sm"
+            title={theme === "dark" ? "Cambiar a Modo Día ☀️" : "Cambiar a Modo Noche 🌙"}
+            aria-label="Toggle Theme"
+          >
+            {theme === "dark" ? (
+              <Sun className="h-5 w-5 text-amber-400 animate-pulse" />
+            ) : (
+              <Moon className="h-5 w-5 text-indigo-400" />
+            )}
+          </button>
+
           <button
             onClick={onOpenBooking}
             className="neon-glow-btn flex items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 via-emerald-500 to-teal-400 px-4 py-2 text-sm font-bold text-black transition-all hover:brightness-110 active:scale-95"
@@ -116,13 +140,23 @@ export function Navbar({ onOpenBooking, audienceMode, setAudienceMode }: NavbarP
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-emerald-800/40 bg-emerald-950/20 text-gray-300 hover:text-white lg:hidden"
-          aria-label="Menu"
-        >
-          {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-2 sm:hidden">
+          <button
+            onClick={toggleTheme}
+            className="flex h-9 w-9 items-center justify-center rounded-lg border border-emerald-500/30 bg-emerald-950/40 text-emerald-300"
+            aria-label="Toggle Theme Mobile"
+          >
+            {theme === "dark" ? <Sun className="h-4 w-4 text-amber-400" /> : <Moon className="h-4 w-4 text-indigo-400" />}
+          </button>
+
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="flex h-10 w-10 items-center justify-center rounded-lg border border-emerald-800/40 bg-emerald-950/20 text-gray-300 hover:text-white"
+            aria-label="Menu"
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer */}
