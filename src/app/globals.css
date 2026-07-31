@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-main: #040806;
+    --bg-card: rgba(12, 22, 17, 0.7);
+    --border-glow: rgba(0, 255, 135, 0.2);
+    --electric-turf: #00ff87;
+    --electric-green: #10b981;
+    --stadium-black: #040806;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: #f3f4f6;
+    font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+    selection-background-color: #00ff87;
+    selection-color: #040806;
+  }
+}
+
+/* Custom Utilities for Avant-Garde UI */
+.bg-mesh-pitch {
+  background-color: #040806;
+  background-image: 
+    radial-gradient(at 20% 20%, rgba(0, 255, 135, 0.12) 0px, transparent 50%),
+    radial-gradient(at 80% 0%, rgba(6, 182, 212, 0.1) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(16, 185, 129, 0.1) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, rgba(0, 255, 135, 0.08) 0px, transparent 50%);
+}
+
+.pitch-lines {
+  background-image: linear-gradient(to right, rgba(0, 255, 135, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(0, 255, 135, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.glass-card {
+  background: rgba(12, 24, 18, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 255, 135, 0.15);
+}
+
+.glass-card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  border-color: rgba(0, 255, 135, 0.4);
+  box-shadow: 0 0 30px rgba(0, 255, 135, 0.15);
+  transform: translateY(-2px);
+}
+
+.text-gradient-turf {
+  background: linear-gradient(135deg, #ffffff 0%, #a7f3d0 40%, #00ff87 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #fef08a 0%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.neon-glow-btn {
+  box-shadow: 0 0 20px rgba(0, 255, 135, 0.35);
+  transition: all 0.25s ease-out;
+}
+.neon-glow-btn:hover {
+  box-shadow: 0 0 35px rgba(0, 255, 135, 0.65);
+  transform: scale(1.02);
+}
+
+.neon-pulse-ring {
+  position: relative;
+}
+.neon-pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #00ff87, #06b6d4, #00ff87);
+  z-index: -1;
+  opacity: 0.7;
+  filter: blur(8px);
+  animation: pulseGlow 3s infinite alternate;
+}
+
+@keyframes pulseGlow {
+  0% { opacity: 0.4; filter: blur(6px); }
+  100% { opacity: 0.9; filter: blur(12px); }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 35s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #040806;
+}
+::-webkit-scrollbar-thumb {
+  background: #064e3b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00ff87;
+}
