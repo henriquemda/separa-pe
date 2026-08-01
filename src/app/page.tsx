@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { LiveTicker } from "@/components/LiveTicker";
 import { Hero } from "@/components/Hero";
@@ -44,7 +45,7 @@ export default function Home() {
         setTheme={setTheme}
       />
 
-      {/* Hero Section */}
+      {/* Hero Section (Always active with dual-persona dynamic inner views) */}
       <main className="flex-grow">
         <Hero
           onOpenBooking={handleOpenBooking}
@@ -59,26 +60,56 @@ export default function Home() {
           setAudienceMode={setAudienceMode}
         />
 
-        {/* Real-time Matchmaking / Modo Falta Uno */}
-        <MatchmakingShowcase onOpenBooking={handleOpenBooking} />
+        {/* Persona-Filtered Section Grouping for Zero-Clutter UX */}
+        <AnimatePresence mode="wait">
+          {audienceMode === "pelotero" ? (
+            <motion.div
+              key="pelotero-sections"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+            >
+              {/* Real-time Matchmaking / Modo Falta Uno */}
+              <MatchmakingShowcase onOpenBooking={handleOpenBooking} />
 
-        {/* Loss Aversion ROI Calculator for Complex Owners */}
-        <RoiCalculator onOpenBooking={() => handleOpenBooking()} />
+              {/* Features Showcase Filtered for Peloteros */}
+              <FeaturesShowcase audienceMode="pelotero" />
 
-        {/* Neuromarketing Features Showcase */}
-        <FeaturesShowcase />
+              {/* Peru Regional Coverage */}
+              <RegionalCoverage onOpenBooking={handleOpenBooking} />
 
-        {/* Peru Regional Coverage */}
-        <RegionalCoverage onOpenBooking={handleOpenBooking} />
+              {/* Verified Social Proof & Player Reviews */}
+              <SocialProof />
 
-        {/* Verified Social Proof & Reviews */}
-        <SocialProof />
+              {/* FAQ Section */}
+              <FaqSection />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="complejo-sections"
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.4 }}
+            >
+              {/* Loss Aversion ROI Calculator for Facility Owners */}
+              <RoiCalculator onOpenBooking={() => handleOpenBooking()} />
 
-        {/* B2B SaaS Pricing Tiers */}
-        <PricingSection onOpenBooking={(plan) => handleOpenBooking({ plan })} />
+              {/* Features Showcase Filtered for Facility SaaS */}
+              <FeaturesShowcase audienceMode="complejo" />
 
-        {/* FAQ Section */}
-        <FaqSection />
+              {/* B2B SaaS Pricing Tiers */}
+              <PricingSection onOpenBooking={(plan) => handleOpenBooking({ plan })} />
+
+              {/* Verified Social Proof & Facility Testimonials */}
+              <SocialProof />
+
+              {/* FAQ Section */}
+              <FaqSection />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
 
       {/* Footer */}
@@ -96,3 +127,4 @@ export default function Home() {
     </div>
   );
 }
+

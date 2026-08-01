@@ -1,16 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Separa.pe | Reserva de Canchas de Fútbol en Perú - 1-Clic por Yape & Plin",
@@ -34,9 +23,10 @@ export default function RootLayout({
   return (
     <html
       lang="es"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
+      className="h-full antialiased dark"
     >
-      <body className="min-h-full flex flex-col bg-[#040806] text-gray-100">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#040806] text-gray-100 font-sans">{children}</body>
     </html>
   );
 }
+
