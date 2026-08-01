@@ -43,11 +43,15 @@ export function Navbar({ onOpenBooking, audienceMode, setAudienceMode, theme = "
         {/* Brand Logo */}
         <div className="flex items-center gap-3">
           <a href="#" className="group flex items-center gap-2.5">
-            <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 p-0.5 shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-all">
+            <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 via-emerald-500 to-teal-400 p-0.5 shadow-lg shadow-emerald-500/20 group-hover:shadow-emerald-500/40 transition-all">
               <div className="flex h-full w-full items-center justify-center rounded-[10px] bg-[#040806]">
-                <span className="text-xl font-black text-emerald-400 group-hover:scale-110 transition-transform">⚽</span>
+                <svg className="h-5 w-5 text-emerald-400 group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M18 6L6 18" />
+                  <path d="M8 4h8a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H8" />
+                  <path d="M16 14H8a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h8" />
+                </svg>
               </div>
-              <span className="absolute -bottom-1 -right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-amber-400 text-[9px] font-bold text-black">
+              <span className="absolute -bottom-1 -right-1 flex h-3.5 w-3.5 items-center justify-center rounded-full bg-amber-400 text-[9px] font-black text-black shadow">
                 PE
               </span>
             </div>
